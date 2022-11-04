@@ -6,7 +6,7 @@
 /*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:40:53 by mmago             #+#    #+#             */
-/*   Updated: 2022/10/27 15:13:42 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/05 02:08:11 by mmago            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define BOLDGREEN		"\033[1m\033[32m"		/* Bold Green */
 # define BOLDYELLOW		"\033[1m\033[33m"		/* Bold Yellow */
 # define BOLDBLUE		"\033[1m\033[34m"		/* Bold Blue */
-# define BOLDMAGENTA		"\033[1m\033[35m"		/* Bold Magenta */
+# define BOLDMAGENTA	"\033[1m\033[35m"		/* Bold Magenta */
 # define BOLDCYAN		"\033[1m\033[36m"		/* Bold Cyan */
 # define BOLDWHITE		"\033[1m\033[37m"		/* Bold White */
 
