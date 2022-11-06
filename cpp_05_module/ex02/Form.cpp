@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 18:03:39 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/05 18:45:44 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/07 01:24:58 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,37 +22,45 @@ Form::Form(const std::string newName, const int SignIt,
 		gradeToExecuteIt(ExecuteIt){
 	this->formSigned = false;
 	if (gradeToSignIt < 1 || gradeToExecuteIt < 1) {
-		// std::cout << "Form -> "BOLDGREEN << this->name << ": ";
 		throw GradeTooHighException();
 	}
 	if (gradeToSignIt > 150 || gradeToExecuteIt > 150) {
-		// std::cout << "Form -> "BOLDGREEN << this->name << ": ";
 		throw GradeTooLowException();
 	}
 	else {
-		std::cout << BOLDGREEN"Form " << BOLDYELLOW << this->name << BOLDGREEN" named constructor called"RESET << std::endl;
+		std::cout << BOLDGREEN"Form " << BOLDYELLOW << this->name <<
+			BOLDGREEN" named constructor called" RESET << std::endl;
 	}
 };
 
 Form& Form::operator=(const Form& equals){
-	std::cout << BOLDGREEN"Form Assignation operator called"RESET << std::endl;
+	std::cout << BOLDGREEN"Form Assignation operator called" RESET << std::endl;
 	if (this == &equals)
 		return (*this);
 	return (*this);
 };
 
 Form::Form(const Form &copy){
-	std::cout << BOLDGREEN"Form Copy constructor called"RESET << std::endl;
+	std::cout << BOLDGREEN"Form Copy constructor called" RESET << std::endl;
 	*this = copy;
 };
 
 void		Form::beSigned(Bureaucrat &bure){
 	if (this->gradeToSignIt >= bure.getGrade()) {
 		this->formSigned = true;
-		std::cout << BOLDGREEN"Form be signed"RESET << std::endl;
+		std::cout << BOLDGREEN"Form be signed" RESET << std::endl;
 	}
 	else
 		throw GradeTooLowException();
+};
+
+void		Form::beExecute(Bureaucrat &bure) {
+	if (!this->formSigned)
+		throw GradeNotSignException();
+	if (bure.getGrade() > this->gradeToExecuteIt)
+		throw GradeTooLowException();
+	else
+		this->execute();
 };
 
 std::string	Form::getName() const{
@@ -72,27 +80,28 @@ int			Form::getGradeToExecute() const{
 };
 
 const char* Form::GradeTooLowException::what() const throw(){
-	return (BOLDYELLOW"FormClass_Error: grade too Low."RESET);
+	return (BOLDYELLOW"FormClass_Error: grade too Low." RESET);
 };
 
 const char* Form::GradeTooHighException::what() const throw(){
-	return (BOLDYELLOW"FormClass_Error: grade too High."RESET);
+	return (BOLDYELLOW"FormClass_Error: grade too High." RESET);
 };
 
 const char* Form::GradeNotSignException::what() const throw(){
-	return (BOLDYELLOW"FormClass_Error: form not Sign."RESET);
+	return (BOLDYELLOW"FormClass_Error: Form not Signed." RESET);
 };
 
 Form::~Form(){
-	std::cout << BOLDRED"Form "BOLDYELLOW << this->name << BOLDRED" destructor called"RESET << std::endl;
+	std::cout << BOLDRED"Form " BOLDYELLOW << this->name << BOLDRED" destructor called" RESET << std::endl;
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &form){
-	out << GREEN << form.getName() << RESET" Form signed = "GREEN << form.getFormSigned() <<
-		RESET << " grade to Sign It = "GREEN << form.getGradeToSign() << 
-		RESET << " grade to Execute It = "GREEN << form.getGradeToExecute() << RESET <<
-		"Is in status: " << (std::string)((form.getFormSigned()) ? ("true") : ("false")) << std::endl;
-	out << "Is in status: " << (std::string)((form.getFormSigned()) ? ("true") : ("false")) << std::endl;
+	out << GREEN << form.getName() << RESET <<
+		" grade to Sign It = " GREEN << form.getGradeToSign() << 
+		RESET << " grade to Execute It = " GREEN << form.getGradeToExecute() << RESET <<
+		" Sign status is: " GREEN <<
+		(std::string)((form.getFormSigned()) ? ("signed") : (RED"not signed")) <<
+		RESET << std::endl;
 
 	return (out);
 };

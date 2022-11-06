@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:40:48 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/05 17:07:41 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/07 01:27:51 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,20 @@ Bureaucrat::Bureaucrat(const std::string newName, int newGrade) : name( newName 
 	}
 	else {
 		this->grade = newGrade;
-		std::cout << BOLDGREEN"Bureaucrat " << BOLDYELLOW << this->name << BOLDGREEN" named constructor called"RESET << std::endl;
+		std::cout << BOLDGREEN"Bureaucrat " << BOLDYELLOW << this->name <<
+			BOLDGREEN" named constructor called" RESET << std::endl;
 	}
 };
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &equals){
-	std::cout << BOLDGREEN"Bureaucrat Assignation operator called"RESET << std::endl;
+	std::cout << BOLDGREEN"Bureaucrat Assignation operator called" RESET << std::endl;
 	if (this == &equals)
 		return (*this);
 	return (*this);
 };
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy){
-	std::cout << BOLDGREEN"Bureaucrat Copy constructor called"RESET << std::endl;
+	std::cout << BOLDGREEN"Bureaucrat Copy constructor called" RESET << std::endl;
 	*this = copy;
 };
 
@@ -59,24 +60,24 @@ void				Bureaucrat::setDecrement(){
 void		Bureaucrat::signForm(Form &form_link){
 	try {
 		form_link.beSigned(*this);
-		std::cout << RED << name << RESET" successfully sign form "RED <<
+		std::cout << RED << name << RESET" successfully sign form " RED <<
 		form_link.getName() << RESET << std::endl; 
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << name << RESET" can't sign "RED << form_link.getName() <<
-		RESET << " because: "RED << e.what() << RESET << std::endl; 
+		std::cout << RED << name << RESET" can't sign " RED << form_link.getName() <<
+		RESET << " because: " RED << e.what() << RESET << std::endl; 
 	}
 };
 
-void		Bureaucrat::executeForm(Form const &form_link){
+void		Bureaucrat::executeForm(Form &form_link){
 	try {
-		form_link.beSigned(*this);
-		std::cout << RED << name << RESET" successfully sign form "RED <<
+		form_link.beExecute(*this);
+		std::cout << RED << name << RESET" successfully execute form " RED <<
 		form_link.getName() << RESET << std::endl; 
 	}
 	catch (const std::exception &e) {
-		std::cout << RED << name << RESET" can't sign "RED << form_link.getName() <<
-		RESET << " because: "RED << e.what() << RESET << std::endl; 
+		std::cout << RED << name << RESET" can't execute " RED << form_link.getName() <<
+		RESET << " because: " RED << e.what() << RESET << std::endl; 
 	}
 };
 
@@ -88,18 +89,20 @@ int			Bureaucrat::getGrade() const{
 };
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
-	return (BOLDYELLOW"Bureaucrat_Error: grade > 150."RESET);
+	return (BOLDYELLOW"Bureaucrat_Error: grade > 150." RESET);
 };
 
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
-	return (BOLDYELLOW"Bureaucrat_Error: grade < 1."RESET);
+	return (BOLDYELLOW"Bureaucrat_Error: grade < 1." RESET);
 };
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << BOLDRED"Bureaucrat "BOLDYELLOW << this->name << BOLDRED" destructor called"RESET << std::endl;
+	std::cout << BOLDRED"Bureaucrat " BOLDYELLOW << this->name <<
+		BOLDRED" destructor called" RESET << std::endl;
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bur){
-	out << BOLDYELLOW << bur.getName() << BOLDCYAN" Bureaucrat grade "BOLDYELLOW << bur.getGrade() << RESET << std::endl;
+	out << BOLDYELLOW << bur.getName() << BOLDCYAN" Bureaucrat grade " BOLDYELLOW <<
+		bur.getGrade() << RESET << std::endl;
 	return (out);
 };

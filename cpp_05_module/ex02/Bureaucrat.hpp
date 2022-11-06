@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:40:53 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/05 17:05:35 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/06 23:23:43 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat& bure);
 
 		void		signForm(Form &form_link);
-		void		executeForm(Form const &form_link);
+		void		executeForm(Form &form_link);
 
 		void		setIncremet();
 		void		setDecrement();

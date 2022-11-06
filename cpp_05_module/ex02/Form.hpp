@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:40:59 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/05 18:45:16 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/07 00:53:05 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ class Form
 		bool				formSigned;
 		int					gradeToSignIt;
 		int					gradeToExecuteIt;
-		
-		Form();
 
 	public:
+		Form();
 		Form(const std::string newName, const int SignIt,
 				const int ExecuteIt);
 		Form(const Form &copy);
@@ -54,8 +53,7 @@ class Form
 
 		Form &operator=(const Form& equals);
 
-		virtual void execute(Bureaucrat const & executor) const = 0;
-		virtual void apply_form(void) const ;
+		virtual void execute(void) const = 0;
 
 		std::string	getName() const;
 		bool		getFormSigned() const;
@@ -63,6 +61,7 @@ class Form
 		int			getGradeToExecute() const;
 
 		void		beSigned(Bureaucrat &bure);
+		void		beExecute(Bureaucrat &bure);
 
 		class GradeTooHighException : public std::exception{
 			public:

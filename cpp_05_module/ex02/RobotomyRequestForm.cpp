@@ -3,10 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:53:06 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/05 16:53:07 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/07 00:29:56 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy", 72, 45)
+{
+
+};
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form(target, 72, 45)
+{
+	this->target = target;
+};
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
+{
+	std::cout << BOLDGREEN "RobotomyRequestForm Copy constructor called" RESET << std::endl;
+	*this = copy;
+};
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& equals)
+{
+	std::cout << BOLDGREEN"RobotomyRequestForm Assignation operator called" RESET << std::endl;
+	if (this == &equals)
+		return (*this);
+	return (*this);
+};
+
+void RobotomyRequestForm::execute() const
+{
+	std::cout << BOLDCYAN " BRZHZHZHHZH  BRZHZHZHZH " RESET << std::endl;
+
+	std::srand((unsigned int)(time(NULL)));
+
+	int	rand_num;
+
+	rand_num = rand() % 2;
+	if (rand_num == 0)
+	{
+		std::cout << BOLDCYAN << this->target <<
+			RESET " has been robotomized." << std::endl;
+	}
+	else
+		std::cout << BOLDBLACK "Robotomy failed." << std::endl;
+};
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+	std::cout << BOLDRED "RobotomyRequestForm destructor called" RESET << std::endl;
+};
