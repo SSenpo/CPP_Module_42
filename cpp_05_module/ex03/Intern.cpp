@@ -6,7 +6,7 @@
 /*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:24:18 by senpo             #+#    #+#             */
-/*   Updated: 2022/11/09 23:10:59 by senpo            ###   ########.fr       */
+/*   Updated: 2022/11/10 00:28:20 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ Form	*Intern::makeForm(const std::string &type, const std::string &target){
 		"shrubbery creation"
 	};
 
-	while (count < 4 and form_index[count++] != type) ;
+	while (count < 3 and form_index[++count] != type) ;
 	switch (count)
 	{
-	case 4:
+	case 3:
 		throw InvalidFormException();
 		return NULL;
 

@@ -6,7 +6,7 @@
 /*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:53:06 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/07 00:29:56 by senpo            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:35:16 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void RobotomyRequestForm::execute() const
 			RESET " has been robotomized." << std::endl;
 	}
 	else
-		std::cout << BOLDBLACK "Robotomy failed." << std::endl;
+		std::cout << BOLDYELLOW "Robotomy failed." << std::endl;
+		throw	Form::GradeNotExecuteException();
 };
 
 RobotomyRequestForm::~RobotomyRequestForm()

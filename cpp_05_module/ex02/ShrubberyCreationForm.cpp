@@ -43,24 +43,24 @@ void ShrubberyCreationForm::execute() const
 	ofs.open(this->target + "_shrubbery", std::ofstream::trunc);
 	if (ofs.is_open())
 	{
-		ofs << "                                                         ." << std::endl;
-		ofs << "                                      .         ;  " << std::endl;
-		ofs << "         .              .              ;%     ;;   " << std::endl;
-		ofs << "           ,           ,                :;%  %;   " << std::endl;
-		ofs << "            :         ;                   :;%;'     .,   " << std::endl;
-		ofs << "   ,.        %;     %;            ;        %;'    ,;" << std::endl;
-		ofs << "     ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl;
-		ofs << "      %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl;
-		ofs << "       ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl;
-		ofs << "        `%;.     ;%;     %;'         `;%%;.%;'" << std::endl;
-		ofs << "         `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl;
-		ofs << "            `:%;.  :;bd%;          %;@%;'" << std::endl;
-		ofs << "              `@%:.  :;%.         ;@@%;'   " << std::endl;
-		ofs << "                `@%.  `;@%.      ;@@%;         " << std::endl;
-		ofs << "                  `@%%. `@%%    ;@@%;        " << std::endl;
-		ofs << "                    ;@%. :@%%  %@@%;       " << std::endl;
+		ofs << BOLDGREEN"                                                         ." << std::endl;
+		ofs << "                   m                  .         ;  " << std::endl;
+		ofs << "    mmago.      m       .  agmmagomma  ;%mmago;;   " << std::endl;
+		ofs << "           ,      m    , mmagommagommag :;%  %;   " << std::endl;
+		ofs << "  mm        : mmago   ;    magommago mmago:;%;'     .,   " << std::endl;
+		ofs << "   ,.  mmago %;     %;    mmago   ;  mmago %;'mmag,;" << std::endl;
+		ofs << " mma ; mmago ;%;  %%; mmago  ,     %;mmag;%; mma,%'" << std::endl;
+		ofs << "      %; mmago %;%; mmag ,  ; mmago %;mm;%;mma,%;' " << std::endl;
+		ofs << " mmago ;%;mmago %;  mmago ;%;  mmago % ;%; m,%;'" << std::endl;
+		ofs << "     mma`%;.mmago;%;mmag %;'   mmago `;%%;.%;'" << std::endl;
+		ofs << "    mmago`:;%.mmag;%%. %@;mmago   %; ;@%;%'" << std::endl;
+		ofs << "            `:%;.mm:;bd%;       mma%;@%;'" << std::endl;
+		ofs << "              `@%:.mm:;%.  mmago  ;@@%;'   " << std::endl;
+		ofs << "                `@%.mm`;@%.mmago ;@@%;         " << std::endl;
+		ofs << "                  `@%%.m`@%%mmag;@@%;        " << std::endl;
+		ofs << "                    ;@%. :@%%mm%@@%;       " << std::endl;
 		ofs << "                      %@bd%%%bd%%:;     " << std::endl;
-		ofs << "                        #@%%%%%:;;" << std::endl;
+		ofs << BOLDYELLOW"                        #@%%%%%:;;" << std::endl;
 		ofs << "                        %@@%%%::;" << std::endl;
 		ofs << "                        %@@@%(o);  . '         " << std::endl;
 		ofs << "                        %@@@o%;:(.,'         " << std::endl;
@@ -70,7 +70,7 @@ void ShrubberyCreationForm::execute() const
 		ofs << "                       .%@@@@%::;         " << std::endl;
 		ofs << "                       ;%@@@@%::;.          " << std::endl;
 		ofs << "                      ;%@@@@%%:;;;. " << std::endl;
-		ofs << "                  ...;%@@@@@%%:;;;;,..    Gilo97" << std::endl;
+		ofs << "     mmago        ...;%@@@@@%%:;;;;,..    mmago" RESET << std::endl;
 		ofs.close();
 	}
 };

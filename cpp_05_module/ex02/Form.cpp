@@ -6,7 +6,7 @@
 /*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 18:03:39 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/07 01:24:58 by senpo            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:28:29 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,10 @@ const char* Form::GradeTooHighException::what() const throw(){
 
 const char* Form::GradeNotSignException::what() const throw(){
 	return (BOLDYELLOW"FormClass_Error: Form not Signed." RESET);
+};
+
+const char* Form::GradeNotExecuteException::what() const throw(){
+	return(BOLDYELLOW"FormClass_Error: Form not Execute." RESET);
 };
 
 Form::~Form(){

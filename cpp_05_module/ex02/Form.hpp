@@ -6,7 +6,7 @@
 /*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:40:59 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/07 00:53:05 by senpo            ###   ########.fr       */
+/*   Updated: 2022/11/09 16:25:29 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ class Form
 		};
 
 		class GradeNotSignException : public std::exception{
+			public:
+				const char* what() const throw();
+		};
+
+		class GradeNotExecuteException : public std::exception{
 			public:
 				const char* what() const throw();
 		};
