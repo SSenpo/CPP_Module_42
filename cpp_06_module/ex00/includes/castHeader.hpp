@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   cast_header.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 17:18:42 by senpo             #+#    #+#             */
-/*   Updated: 2022/11/11 18:38:35 by senpo            ###   ########.fr       */
+/*   Created: 2022/11/11 00:15:17 by senpo             #+#    #+#             */
+/*   Updated: 2022/11/11 14:03:50 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef CAST_HEADERS_HPP
+# define CAST_HEADERS_HPP
 
 # define RESET			"\033[0m"
 # define BLACK			"\033[30m"				/* Black */
@@ -31,36 +31,16 @@
 # define BOLDCYAN		"\033[1m\033[36m"		/* Bold Cyan */
 # define BOLDWHITE		"\033[1m\033[37m"		/* Bold White */
 
-# include "PresidentialPardonForm.hpp"
-# include "ShrubberyCreationForm.hpp"
-# include "RobotomyRequestForm.hpp"
+# include <iostream>
+# include <string>
+# include <limits>
+# include <exception>
+# include <cmath>
+# include <cstring>
 
-class Form;
-
-class Intern
-{
-	public:
-
-		Intern(void);
-		Intern(Intern const &copy);
-		~Intern(void);
-
-		Intern	&operator=(const Intern& equals);
-
-		Form	*makeForm(std::string const &type, std::string const &target);
-
-		class	InvalidFormException : public std::exception{
-			public:
-				const char* what() const throw();
-		};
-
-	private:
-
-		typedef Form* (Intern:: * I_link)(std::string const &type);
-		
-		Form	*initPresident(std::string const &target);
-		Form	*initRobotomy(std::string const &target);
-		Form	*initShrubbery(std::string const &target);
-};
+void	isDouble(const std::string &str);
+void	isFloat(const std::string &str);
+void	isChar(const std::string &str);
+void	isInt(const std::string &str);
 
 #endif

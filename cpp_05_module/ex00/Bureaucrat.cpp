@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:40:48 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/04 23:58:15 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/11 18:19:12 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ Bureaucrat::Bureaucrat(const std::string newName, int newGrade) : name( newName 
 		throw GradeTooLowException();
 	else {
 		this->grade = newGrade;
-		std::cout << BOLDGREEN"Bureaucrat " << BOLDYELLOW << this->name << BOLDGREEN" named constructor called"RESET << std::endl;
+		std::cout << BOLDGREEN"Bureaucrat " << BOLDYELLOW << this->name << BOLDGREEN" named constructor called" RESET << std::endl;
 	}
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &equals){
-	std::cout << BOLDGREEN"Bureaucrat Assignation operator called"RESET << std::endl;
+	std::cout << BOLDGREEN"Bureaucrat Assignation operator called" RESET << std::endl;
 	if (this == &equals)
 		return (*this);
 	return (*this);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy){
-	std::cout << BOLDGREEN"Bureaucrat Copy constructor called"RESET << std::endl;
+	std::cout << BOLDGREEN"Bureaucrat Copy constructor called" RESET << std::endl;
 	*this = copy;
 }
 
@@ -59,18 +59,18 @@ int			Bureaucrat::getGrade() const{
 };
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
-	return (BOLDBLACK"Error: grade > 150."RESET);
+	return (BOLDRED"Error: grade > 150." RESET);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
-	return (BOLDBLACK"Error: grade < 1."RESET);
+	return (BOLDRED"Error: grade < 1." RESET);
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << BOLDRED"Bureaucrat "BOLDYELLOW << this->name << BOLDRED" destructor called"RESET << std::endl;
+	std::cout << BOLDRED"Bureaucrat " BOLDYELLOW << this->name << BOLDRED" destructor called" RESET << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bur){
-	out << BOLDYELLOW << bur.getName() << BOLDCYAN" Bureaucrat grade "BOLDYELLOW << bur.getGrade() << RESET << std::endl;
+	out << BOLDYELLOW << bur.getName() << BOLDCYAN" Bureaucrat grade " BOLDYELLOW << bur.getGrade() <<  RESET << std::endl;
 	return (out);
 };

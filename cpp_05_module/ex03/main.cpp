@@ -6,7 +6,7 @@
 /*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 00:48:01 by senpo             #+#    #+#             */
-/*   Updated: 2022/11/10 00:31:15 by senpo            ###   ########.fr       */
+/*   Updated: 2022/11/11 18:38:30 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int main(void)
 		form = bob.makeForm("robotomy request", "Alice");
 		delete form;
 		form = bob.makeForm("shrubbery creation", "Charlie");
-		std::cout << "TEST1" << std::endl;
 		delete form;
 		form = bob.makeForm("presidential pardon", "David");
 		delete form;
@@ -38,7 +37,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Caught exception: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	// Test some Actions with available form

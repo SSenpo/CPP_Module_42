@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmago <mmago@student.42.fr>                +#+  +:+       +#+        */
+/*   By: senpo <senpo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:40:55 by mmago             #+#    #+#             */
-/*   Updated: 2022/11/05 01:51:04 by mmago            ###   ########.fr       */
+/*   Updated: 2022/11/11 18:24:22 by senpo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 	{
 		try
 		{
-			Form form0("A99", 0, 5);
+			Form form0("A99", 1, 5);
 			std::cout << form0 << std::endl;
 		}
 		catch(std::exception &e)
@@ -35,7 +35,7 @@ int main()
 	{
 		try
 		{
-			Bureaucrat mike("Mike", 15);
+			Bureaucrat mike("Mike", 115);
 			Form form("B58", 20, 45);
 			std::cout << mike << std::endl;
 			std::cout << form << std::endl;
